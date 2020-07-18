@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="relleno_act">10dp</dimen>
-    <dimen name="margen_cv">16dp</dimen>
+    <dimen name="margen_cv">10dp</dimen>
     <dimen name="corner_cv">4dp</dimen>
+    <dimen name="imgsize">270dp</dimen>
+    <dimen name="separador_horizontal">4dp</dimen>
+    <dimen name="hueso_size">35dp</dimen>
+    <dimen name="margenizquierdo">15dp</dimen>
+    <dimen name="sizeNombreMascota">30dp</dimen>
+    <dimen name="sizeNumLikes">26dp</dimen>
+    <dimen name="ancho_texto">150sp</dimen>
+    <dimen name="margen_hueso">15dp</dimen>
 </resources>
