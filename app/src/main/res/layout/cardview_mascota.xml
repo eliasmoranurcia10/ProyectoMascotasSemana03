@@ -62,7 +62,8 @@
                 android:fontFamily="monospace"
                 android:layout_margin="@dimen/margen_hueso"
                 tools:targetApi="jelly_bean"
-                tools:ignore="SpUsage" />
+                tools:ignore="SpUsage"
+                />
 
             <ImageView
                 android:id="@+id/imgNumLikes"

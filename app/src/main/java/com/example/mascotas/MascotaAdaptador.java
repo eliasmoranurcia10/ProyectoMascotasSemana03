@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
 
@@ -21,6 +23,10 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity) {
         this.mascotas = mascotas;
         this.activity = activity;
+    }
+
+    public ArrayList<Mascota> getMascotas() {
+        return mascotas;
     }
 
     //Inflar el Layout y lo pasará al viewholder para que obtenga los views
@@ -34,12 +40,27 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(MascotaViewHolder mascotaViewHolder, int position) {
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) {
         final Mascota mascota = mascotas.get(position);
 
         mascotaViewHolder.imgFotoMascota.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvNombreMascota.setText(mascota.getNombreMascota());
         mascotaViewHolder.tvNumeroLikes.setText(" " +Integer.toString(mascota.getNumeroLikes()) );
+
+        mascotaViewHolder.btnhuesolike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mascota.setNumeroLikes(mascota.getNumeroLikes()+1);
+
+                Date nuevafecha = new Date();
+                mascota.setFechaUltimoLike(nuevafecha);
+
+                mascotaViewHolder.tvNumeroLikes.setText(" " +Integer.toString(mascota.getNumeroLikes()) );
+
+                //Toast.makeText(activity, ""+mascota.getNumeroLikes(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

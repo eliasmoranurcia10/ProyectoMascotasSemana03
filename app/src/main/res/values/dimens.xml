@@ -9,6 +9,6 @@
     <dimen name="margenizquierdo">15dp</dimen>
     <dimen name="sizeNombreMascota">30dp</dimen>
     <dimen name="sizeNumLikes">26dp</dimen>
-    <dimen name="ancho_texto">150sp</dimen>
+    <dimen name="ancho_texto">145sp</dimen>
     <dimen name="margen_hueso">15dp</dimen>
 </resources>
