@@ -3,6 +3,8 @@ package com.example.mascotas;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.favoritos){
             //AQUI SE CREARÁ UNA ACCIÓN
+            IngresarMascotasFavoritas(null);
             return true;
         }
 
@@ -92,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void SalirApp(View view){
         finish();
+    }
+
+    public void IngresarMascotasFavoritas(View view){
+        Intent intent = new Intent(this, MascotasFavoritas.class);
+
+        startActivity(intent);
     }
 
 }
