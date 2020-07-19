@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
-import java.text.SimpleDateFormat;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 
@@ -58,4 +65,33 @@ public class MainActivity extends AppCompatActivity {
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,this);
         listaMascotas.setAdapter(adaptador);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu mimenu) {
+        getMenuInflater().inflate(R.menu.menu_en_activity, mimenu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem opcionesmenu) {
+        //ALMACENA EL ID DEL BOTON QUE SE PRESIONÓ EN EL MENU
+        int id = opcionesmenu.getItemId();
+
+        if(id == R.id.salir){
+            SalirApp(null);
+            return true;
+        }
+
+        if(id == R.id.favoritos){
+            //AQUI SE CREARÁ UNA ACCIÓN
+            return true;
+        }
+
+        return super.onOptionsItemSelected(opcionesmenu);
+    }
+
+    public void SalirApp(View view){
+        finish();
+    }
+
 }

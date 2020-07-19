@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Mascotas</string>
+    <string name="app_name">Petagram</string>
 
     <string name="nombre_mascota">Diesel</string>
     <string name="numero_likes"> 0 </string>
+
+    <!--PARA MENU-->
+    <string name="favoritos">Favoritos</string>
+    <string name="salir">Salir</string>
 </resources>
