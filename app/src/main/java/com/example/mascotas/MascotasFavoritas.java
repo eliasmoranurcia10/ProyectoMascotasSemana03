@@ -22,6 +22,8 @@ public class MascotasFavoritas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mascotas_favoritas);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         listamascotasfav = (RecyclerView) findViewById(R.id.rvMascotasFavoritas);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
