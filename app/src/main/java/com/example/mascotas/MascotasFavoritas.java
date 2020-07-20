@@ -37,6 +37,12 @@ public class MascotasFavoritas extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
     public void inicializarMascotasFavoritas(){
         mascotasfav = new ArrayList<Mascota>();
         Date fechaAct = new Date();
