@@ -4,19 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
+    ArrayList<Mascota> mascotasfavoritas;
     private RecyclerView listaMascotas;
 
     @Override
@@ -66,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
     public void inicializarAdaptador(){
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,this);
         listaMascotas.setAdapter(adaptador);
+
+        mascotasfavoritas = new ArrayList<Mascota>();
+        mascotasfavoritas = adaptador.getMascotas();
     }
 
     @Override
@@ -100,7 +107,33 @@ public class MainActivity extends AppCompatActivity {
     public void IngresarMascotasFavoritas(View view){
         Intent intent = new Intent(this, MascotasFavoritas.class);
 
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("mascotafav",mascotasfavoritas);
+        intent.putExtras(bundle);
         startActivity(intent);
+
+        /*
+        Mascota mascotaFavorita = mascotasfavoritas.get(1);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("mascotafav",mascotaFavorita);
+        intent.putExtras(bundle);
+        startActivity(intent);
+         */
+
+
+        /*
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aaa");
+
+            for (int i = 0; i < mascotasfavoritas.size(); i++) {
+                System.out.println("" + mascotasfavoritas.get(i).getNombreMascota() +" |"+ sdf.format(mascotasfavoritas.get(i).getFechaUltimoLike()));
+            }
+
+            startActivity(intent);
+        }catch (Exception e){
+
+        }
+         */
     }
 
 }
