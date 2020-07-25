@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -86,18 +87,38 @@ public class MainActivity extends AppCompatActivity {
         //ALMACENA EL ID DEL BOTON QUE SE PRESIONÓ EN EL MENU
         int id = opcionesmenu.getItemId();
 
-        if(id == R.id.salir){
-            SalirApp(null);
-            return true;
-        }
-
         if(id == R.id.favoritos){
             //AQUI SE CREARÁ UNA ACCIÓN
             IngresarMascotasFavoritas(null);
             return true;
         }
 
+        if(id == R.id.mContacto){
+            IngresaraFormularioContacto(null);
+            return true;
+        }
+
+        if(id == R.id.mAcercade){
+            IngresaraAcercaDe(null);
+            return true;
+        }
+
+        if(id == R.id.salir){
+            SalirApp(null);
+            return true;
+        }
+
         return super.onOptionsItemSelected(opcionesmenu);
+    }
+
+    public void IngresaraAcercaDe(View view){
+        Intent intent = new Intent(this, InformacionActivity.class);
+        startActivity(intent);
+    }
+
+    public void IngresaraFormularioContacto(View view){
+        Intent intent = new Intent(this, ActivityContacto.class);
+        startActivity(intent);
     }
 
     public void SalirApp(View view){

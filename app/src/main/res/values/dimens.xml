@@ -13,5 +13,18 @@
     <dimen name="margen_hueso">15dp</dimen>
     <dimen name="elevacion_toobar">4dp</dimen>
 
+    <dimen name="paddingActividadContacto">16dp</dimen>
+    <dimen name="sizetituloContacto">40sp</dimen>
+    <dimen name="margen_arriba_contacto">60dp</dimen>
+    <dimen name="margen_abajo_contacto">80dp</dimen>
 
+    <dimen name="size_texto_c">25dp</dimen>
+    <dimen name="size_texto_p">20dp</dimen>
+    <dimen name="cornerboton">50dp</dimen>
+
+    <dimen name="ancho_tv">120dp</dimen>
+    <dimen name="ancho_edt">200dp</dimen>
+
+    <dimen name="spaceabajo">40dp</dimen>
+    <dimen name="spaceabajofinal">60dp</dimen>
 </resources>
