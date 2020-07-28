@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InformacionActivity"></activity>
+        <activity
+            android:name=".InformacionActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Dialog.Bridge"
+            >
+
+
+        </activity>
         <activity android:name=".ActivityContacto" />
         <activity
             android:name=".MainActivity"

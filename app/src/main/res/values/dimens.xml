@@ -27,4 +27,9 @@
 
     <dimen name="spaceabajo">40dp</dimen>
     <dimen name="spaceabajofinal">60dp</dimen>
+
+
+    <dimen name="tituloBiografia">30dp</dimen>
+    <dimen name="rellenotitleacerca">25dp</dimen>
+    <dimen name="sizeacerca">20dp</dimen>
 </resources>

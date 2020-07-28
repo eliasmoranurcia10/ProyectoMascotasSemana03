@@ -20,4 +20,9 @@
     <string name="ingrese_mensaje">Ingrese Mensaje</string>
 
     <string name="enviar_comentario">Enviar Comentario</string>
+
+    <!--MI BIOGRAFÍA-->
+    <string name="titulo_bio">Biografía del Autor</string>
+    <string name="biografia">Mi nombre es Elias Moran Urcia y soy estudiante de la Universidad Nacional Pedro Ruiz Gallo de Perú, te agradezco que hayas revisado mi trabajo 28/07/2020</string>
+
 </resources>
