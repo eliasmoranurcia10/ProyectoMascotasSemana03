@@ -32,4 +32,6 @@
     <dimen name="tituloBiografia">30dp</dimen>
     <dimen name="rellenotitleacerca">25dp</dimen>
     <dimen name="sizeacerca">20dp</dimen>
+
+    <dimen name="rellenofragmlistamasc">10dp</dimen>
 </resources>

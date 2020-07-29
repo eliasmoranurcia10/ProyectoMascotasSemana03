@@ -1,56 +1,80 @@
 package com.example.mascotas;
 
+import androidx.annotation.IntRange;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.appcompat.widget.Toolbar;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-    ArrayList<Mascota> mascotasfavoritas;
-    private RecyclerView listaMascotas;
+
+    //creo variables de toolbar, tablayout y viewpager
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Haciendo Casting de las variables
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        if(toolbar != null){
+            setSupportActionBar(toolbar);
+        }
 
-        //Crear LinearLayout
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        //Darle sentido vertical
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        setUpViewPager();
 
-        //Agregar el diseño a la listaMascotas quien es un RecycleView
-        listaMascotas.setLayoutManager(llm);
 
-        //Crear arreglos de Mascotas
-        inicializarListaMascotas();
-
-        //Crear Objeto Adaptador y que tome forma de listaMascotas
-        inicializarAdaptador();
     }
 
-    public void inicializarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
+    private void setUpViewPager(){
+        //el viewPager se adapta al PagerAdapter
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+
+    }
+
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new ListamascotasFragment());
+        fragments.add(new PerfilmascotaFragment());
+
+        return fragments;
+    }
+
+    private ArrayList<Mascota> listaMascotasFavoritas(){
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+
         Date fechaActual = new Date();
 
         mascotas.add(new Mascota(R.drawable.diesel, "Diesel", 0, fechaActual));
@@ -66,15 +90,11 @@ public class MainActivity extends AppCompatActivity {
         mascotas.add(new Mascota(R.drawable.teysi, "Teisi", 0, fechaActual));
         mascotas.add(new Mascota(R.drawable.toby, "Toby", 0, fechaActual));
 
+        MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(mascotas,this);
+
+        return mascotaAdaptador.getMascotas();
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,this);
-        listaMascotas.setAdapter(adaptador);
-
-        mascotasfavoritas = new ArrayList<Mascota>();
-        mascotasfavoritas = adaptador.getMascotas();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu mimenu) {
@@ -88,10 +108,20 @@ public class MainActivity extends AppCompatActivity {
         int id = opcionesmenu.getItemId();
 
         if(id == R.id.favoritos){
-            //AQUI SE CREARÁ UNA ACCIÓN
-            IngresarMascotasFavoritas(null);
+
+            Intent intent = new Intent(this, MascotasFavoritas.class);
+
+            ArrayList<Mascota> mascotasfavoritas = listaMascotasFavoritas();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("mascotafav",mascotasfavoritas);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
+            //IngresarMascotasFavoritas(null);
             return true;
         }
+
+
 
         if(id == R.id.mContacto){
             IngresaraFormularioContacto(null);
@@ -125,36 +155,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void IngresarMascotasFavoritas(View view){
-        Intent intent = new Intent(this, MascotasFavoritas.class);
 
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("mascotafav",mascotasfavoritas);
-        intent.putExtras(bundle);
-        startActivity(intent);
-
-        /*
-        Mascota mascotaFavorita = mascotasfavoritas.get(1);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("mascotafav",mascotaFavorita);
-        intent.putExtras(bundle);
-        startActivity(intent);
-         */
-
-
-        /*
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aaa");
-
-            for (int i = 0; i < mascotasfavoritas.size(); i++) {
-                System.out.println("" + mascotasfavoritas.get(i).getNombreMascota() +" |"+ sdf.format(mascotasfavoritas.get(i).getFechaUltimoLike()));
-            }
-
-            startActivity(intent);
-        }catch (Exception e){
-
-        }
-         */
-    }
 
 }
