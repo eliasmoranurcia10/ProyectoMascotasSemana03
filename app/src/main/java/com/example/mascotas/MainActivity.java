@@ -1,35 +1,23 @@
 package com.example.mascotas;
 
-import androidx.annotation.IntRange;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
 
     //creo variables de toolbar, tablayout y viewpager
@@ -93,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         MascotaAdaptador mascotaAdaptador = new MascotaAdaptador(mascotas,this);
 
         return mascotaAdaptador.getMascotas();
+
+
     }
 
 
@@ -116,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putSerializable("mascotafav",mascotasfavoritas);
             intent.putExtras(bundle);
             startActivity(intent);
+
 
             //IngresarMascotasFavoritas(null);
             return true;
@@ -154,7 +145,5 @@ public class MainActivity extends AppCompatActivity {
     public void SalirApp(View view){
         finish();
     }
-
-
 
 }

@@ -9,7 +9,6 @@ public class Mascota implements Serializable {
     private int numeroLikes;
     private Date fechaUltimoLike;
 
-
     public Mascota(int foto, String nombreMascota, int numeroLikes, Date fechaUltimoLike) {
         this.foto = foto;
         this.nombreMascota = nombreMascota;

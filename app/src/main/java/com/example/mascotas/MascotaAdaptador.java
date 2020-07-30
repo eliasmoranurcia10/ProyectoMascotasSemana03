@@ -20,7 +20,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     ArrayList<Mascota> mascotas;
     Activity activity;
 
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity) {
+    public MascotaAdaptador(ArrayList<Mascota> mascotas,Activity activity) {
         this.mascotas = mascotas;
         this.activity = activity;
     }
