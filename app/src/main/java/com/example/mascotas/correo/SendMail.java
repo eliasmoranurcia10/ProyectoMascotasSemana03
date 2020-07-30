@@ -1,9 +1,11 @@
-package com.example.mascotas;
+package com.example.mascotas.correo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.example.mascotas.correo.Config;
 
 import java.util.Properties;
 

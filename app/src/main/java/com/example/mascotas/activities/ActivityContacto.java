@@ -1,4 +1,4 @@
-package com.example.mascotas;
+package com.example.mascotas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.mascotas.R;
+import com.example.mascotas.correo.SendMail;
 
 public class ActivityContacto extends AppCompatActivity implements View.OnClickListener {
 

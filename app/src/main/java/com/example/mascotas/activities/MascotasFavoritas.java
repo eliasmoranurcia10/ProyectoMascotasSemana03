@@ -1,12 +1,14 @@
-package com.example.mascotas;
+package com.example.mascotas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.widget.LinearLayout;
+
+import com.example.mascotas.R;
+import com.example.mascotas.adapter.MascotaAdaptador;
+import com.example.mascotas.pojo.Mascota;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

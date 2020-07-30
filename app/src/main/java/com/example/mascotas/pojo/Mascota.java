@@ -1,4 +1,4 @@
-package com.example.mascotas;
+package com.example.mascotas.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

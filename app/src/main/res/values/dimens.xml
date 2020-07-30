@@ -3,9 +3,10 @@
     <dimen name="relleno_act">10dp</dimen>
     <dimen name="margen_cv">10dp</dimen>
     <dimen name="corner_cv">4dp</dimen>
-    <dimen name="imgsize">270dp</dimen>
+    <dimen name="imgsize">200dp</dimen>
     <dimen name="separador_horizontal">4dp</dimen>
     <dimen name="hueso_size">35dp</dimen>
+    <dimen name="hueso_size_a">25dp</dimen>
     <dimen name="margenizquierdo">15dp</dimen>
     <dimen name="sizeNombreMascota">30dp</dimen>
     <dimen name="sizeNumLikes">26dp</dimen>
@@ -34,4 +35,9 @@
     <dimen name="sizeacerca">20dp</dimen>
 
     <dimen name="rellenofragmlistamasc">10dp</dimen>
+
+    <dimen name="civsize">200dp</dimen>
+    <dimen name="civanchodeborde">4dp</dimen>
+    <dimen name="civradiosombra">10dp</dimen>
+    <dimen name="civtexto">28sp</dimen>
 </resources>

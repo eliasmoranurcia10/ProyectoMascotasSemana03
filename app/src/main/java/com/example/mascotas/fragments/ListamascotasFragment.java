@@ -1,4 +1,4 @@
-package com.example.mascotas;
+package com.example.mascotas.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.mascotas.R;
+import com.example.mascotas.activities.MascotasFavoritas;
+import com.example.mascotas.adapter.MascotaAdaptador;
+import com.example.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
 import java.util.Date;

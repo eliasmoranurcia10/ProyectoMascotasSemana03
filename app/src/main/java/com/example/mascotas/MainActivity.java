@@ -12,6 +12,14 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.mascotas.activities.ActivityContacto;
+import com.example.mascotas.activities.InformacionActivity;
+import com.example.mascotas.activities.MascotasFavoritas;
+import com.example.mascotas.adapter.MascotaAdaptador;
+import com.example.mascotas.adapter.PageAdapter;
+import com.example.mascotas.fragments.ListamascotasFragment;
+import com.example.mascotas.fragments.PerfilmascotaFragment;
+import com.example.mascotas.pojo.Mascota;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -67,14 +75,14 @@ public class MainActivity extends AppCompatActivity{
 
         Date fechaActual = new Date();
 
-        mascotas.add(new Mascota(R.drawable.diesel, "Diesel", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.betoben, "Betoben", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.boberman, "Boberman", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.branco, "Branco", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.dalma, "Dalma", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.donki, "Donki", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.kitty, "Kitty", 0, fechaActual));
-        mascotas.add(new Mascota(R.drawable.michi, "Michi", 0, fechaActual));
+        mascotas.add(new Mascota(R.drawable.diesel, "Diesel", 8, fechaActual));
+        mascotas.add(new Mascota(R.drawable.betoben, "Betoben", 7, fechaActual));
+        mascotas.add(new Mascota(R.drawable.boberman, "Boberman", 5, fechaActual));
+        mascotas.add(new Mascota(R.drawable.branco, "Branco", 4, fechaActual));
+        mascotas.add(new Mascota(R.drawable.dalma, "Dalma", 3, fechaActual));
+        mascotas.add(new Mascota(R.drawable.donki, "Donki", 1, fechaActual));
+        mascotas.add(new Mascota(R.drawable.kitty, "Kitty", 1, fechaActual));
+        mascotas.add(new Mascota(R.drawable.michi, "Michi", 1, fechaActual));
         mascotas.add(new Mascota(R.drawable.pibe, "Pibe", 0, fechaActual));
         mascotas.add(new Mascota(R.drawable.puppy, "Puppy", 0, fechaActual));
         mascotas.add(new Mascota(R.drawable.teysi, "Teisi", 0, fechaActual));

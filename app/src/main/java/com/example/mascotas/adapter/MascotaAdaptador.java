@@ -1,4 +1,4 @@
-package com.example.mascotas;
+package com.example.mascotas.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mascotas.R;
+import com.example.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
 import java.util.Date;

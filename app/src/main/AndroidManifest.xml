@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".InformacionActivity"
+            android:name=".activities.InformacionActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.Dialog.Bridge"
             >
 
 
         </activity>
-        <activity android:name=".ActivityContacto" />
+        <activity android:name=".activities.ActivityContacto" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MascotasFavoritas"
+            android:name=".activities.MascotasFavoritas"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

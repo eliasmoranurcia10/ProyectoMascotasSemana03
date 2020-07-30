@@ -1,4 +1,4 @@
-package com.example.mascotas;
+package com.example.mascotas.adapter;
 
 
 import androidx.fragment.app.Fragment;
