@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity{
 
         Date fechaActual = new Date();
 
+        /*
         mascotas.add(new Mascota(R.drawable.diesel, "Diesel", 8, fechaActual));
         mascotas.add(new Mascota(R.drawable.betoben, "Betoben", 7, fechaActual));
         mascotas.add(new Mascota(R.drawable.boberman, "Boberman", 5, fechaActual));
@@ -92,7 +93,9 @@ public class MainActivity extends AppCompatActivity{
 
         return mascotaAdaptador.getMascotas();
 
+         */
 
+        return mascotas;
     }
 
 
@@ -111,14 +114,16 @@ public class MainActivity extends AppCompatActivity{
 
             Intent intent = new Intent(this, MascotasFavoritas.class);
 
+            /*
             ArrayList<Mascota> mascotasfavoritas = listaMascotasFavoritas();
             Bundle bundle = new Bundle();
             bundle.putSerializable("mascotafav",mascotasfavoritas);
             intent.putExtras(bundle);
+
+             */
             startActivity(intent);
 
 
-            //IngresarMascotasFavoritas(null);
             return true;
         }
 

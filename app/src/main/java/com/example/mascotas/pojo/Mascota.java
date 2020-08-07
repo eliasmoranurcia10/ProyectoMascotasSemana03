@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Mascota implements Serializable {
+    private int id;
     private int foto;
     private String nombreMascota;
     private int numeroLikes;
@@ -14,6 +15,14 @@ public class Mascota implements Serializable {
         this.nombreMascota = nombreMascota;
         this.numeroLikes = numeroLikes;
         this.fechaUltimoLike = fechaUltimoLike;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getFoto() {

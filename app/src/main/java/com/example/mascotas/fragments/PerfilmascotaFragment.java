@@ -13,14 +13,16 @@ import android.view.ViewGroup;
 import com.example.mascotas.R;
 import com.example.mascotas.adapter.PerfilMascotaAdaptador;
 import com.example.mascotas.pojo.Mascota;
+import com.example.mascotas.presentador.IRecyclerViewFragmentPresenter;
+import com.example.mascotas.presentador.RecyclerViewFragmentPresent;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PerfilmascotaFragment extends Fragment {
+public class PerfilmascotaFragment extends Fragment implements IRvPerfilmascotaFragmentView{
 
-    ArrayList<Mascota> perfilmascotas;
     private RecyclerView rvPerfilmascotas;
+    private IRecyclerViewFragmentPresenter presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,37 +32,25 @@ public class PerfilmascotaFragment extends Fragment {
 
         rvPerfilmascotas = (RecyclerView) vista.findViewById(R.id.rvPerfilmascotas);
 
-        GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
-        rvPerfilmascotas.setLayoutManager(glm);
-
-        inicializarListaPerfilMascotas();
-
-        inicializarAdaptadorMascotas();
+        presenter = new RecyclerViewFragmentPresent(this,getContext());
 
         return vista;
     }
 
-    public void inicializarListaPerfilMascotas(){
-        perfilmascotas = new ArrayList<Mascota>();
-        Date fechaActual = new Date();
-
-        perfilmascotas.add(new Mascota(R.drawable.diesel, "Diesel", 8, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.betoben, "Betoben", 7, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.boberman, "Boberman", 5, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.branco, "Branco", 4, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.dalma, "Dalma", 3, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.donki, "Donki", 1, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.kitty, "Kitty", 1, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.michi, "Michi", 1, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.pibe, "Pibe", 0, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.puppy, "Puppy", 0, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.teysi, "Teisi", 0, fechaActual));
-        perfilmascotas.add(new Mascota(R.drawable.toby, "Toby", 0, fechaActual));
+    @Override
+    public void generarGridLayoutManager() {
+        GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
+        rvPerfilmascotas.setLayoutManager(glm);
     }
 
-    public void inicializarAdaptadorMascotas(){
-        PerfilMascotaAdaptador perfilMascotaAdaptador = new PerfilMascotaAdaptador(perfilmascotas,getActivity());
+    @Override
+    public PerfilMascotaAdaptador crearAdaptadorPerfil(ArrayList<Mascota> mascotas) {
+        PerfilMascotaAdaptador perfilAdaptador = new PerfilMascotaAdaptador(mascotas,getActivity());
+        return perfilAdaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorRVPerfil(PerfilMascotaAdaptador perfilMascotaAdaptador) {
         rvPerfilmascotas.setAdapter(perfilMascotaAdaptador);
     }
-
 }
