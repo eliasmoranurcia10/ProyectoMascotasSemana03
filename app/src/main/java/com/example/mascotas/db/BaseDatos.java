@@ -85,6 +85,44 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void modificarLikeMascota(Mascota mascotaActual){
+        int nuevoNumlikes = 0;
+        Date nuevafecha = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aaa");
+
+        mascotaActual.setNumeroLikes(mascotaActual.getNumeroLikes() + 1);
+        nuevoNumlikes = mascotaActual.getNumeroLikes();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("UPDATE " + ConstantesBaseDatos.TABLE_MASCOTA +
+                " SET " + ConstantesBaseDatos.TABLE_MASCOTA_NUMERO_LIKES +" = " + String.valueOf(nuevoNumlikes) +
+                " , " + ConstantesBaseDatos.TABLE_MASCOTA_FECHA_LIKE +" = '" + sdf.format(nuevafecha) + "' "+
+                " WHERE "+ ConstantesBaseDatos.TABLE_MASCOTA_ID + " = " + String.valueOf(mascotaActual.getId()) + " ;"
+        );
+
+        db.close();
+    }
+
+    public int obtenerNumLikeMascota(Mascota mascota){
+        int likes = 0;
+
+        String query = "SELECT " + ConstantesBaseDatos.TABLE_MASCOTA_NUMERO_LIKES +
+                " FROM " + ConstantesBaseDatos.TABLE_MASCOTA +
+                " WHERE " + ConstantesBaseDatos.TABLE_MASCOTA_ID + " = " + mascota.getId() + " ;" ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor registrolike = db.rawQuery(query, null);
+
+        if(registrolike.moveToNext()){
+            likes = registrolike.getInt(0);
+        }
+        db.close();
+
+        return likes;
+    }
+
+
     public void eliminarTodasLasMascotas(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + ConstantesBaseDatos.TABLE_MASCOTA + " ;");

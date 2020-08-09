@@ -52,6 +52,17 @@ public class ConstructorMascotas {
          */
     }
 
+    public void darLikeaMascota(Mascota mascota){
+        BaseDatos db = new BaseDatos(context);
+        db.modificarLikeMascota(mascota);
+    }
+
+    public int obtenerNumeroLikesdeMascota(Mascota mascota){
+        BaseDatos db = new BaseDatos(context);
+
+        return db.obtenerNumLikeMascota(mascota);
+    }
+
     public void insertarMascotas(BaseDatos db){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aaa");

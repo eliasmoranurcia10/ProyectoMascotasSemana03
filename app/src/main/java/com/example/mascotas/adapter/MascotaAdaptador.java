@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,6 +54,16 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(activity, "Diste Like a "+ mascota.getNombreMascota() + " ", Toast.LENGTH_SHORT).show();
+
+                int nuevolike = 0;
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darLikeaMascota(mascota);
+
+                mascotaViewHolder.tvNumeroLikes.setText(String.valueOf(constructorMascotas.obtenerNumeroLikesdeMascota(mascota)));
+
+                /*
                 mascota.setNumeroLikes(mascota.getNumeroLikes()+1);
 
                 Date nuevafecha = new Date();
@@ -60,6 +71,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
                 mascotaViewHolder.tvNumeroLikes.setText(" " +Integer.toString(mascota.getNumeroLikes()) );
 
+                 */
                 //Toast.makeText(activity, ""+mascota.getNumeroLikes(), Toast.LENGTH_SHORT).show();
             }
         });
