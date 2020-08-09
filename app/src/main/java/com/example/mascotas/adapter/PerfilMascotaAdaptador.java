@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mascotas.R;
+import com.example.mascotas.db.ConstructorMascotas;
 import com.example.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -35,7 +36,9 @@ public class PerfilMascotaAdaptador extends RecyclerView.Adapter<PerfilMascotaAd
         final Mascota mascota = mascotas.get(position);
 
         perfilMascotaViewHolder.imgFotoPerfilMascota.setImageResource(mascota.getFoto());
-        perfilMascotaViewHolder.tvNumeroLikesPerfil.setText(" " +Integer.toString(mascota.getNumeroLikes()) );
+
+        ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+        perfilMascotaViewHolder.tvNumeroLikesPerfil.setText(String.valueOf(constructorMascotas.obtenerNumeroLikesdeMascota(mascota)));
 
     }
 
