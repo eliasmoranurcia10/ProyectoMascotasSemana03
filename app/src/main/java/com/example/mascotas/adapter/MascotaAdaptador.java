@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mascotas.R;
+import com.example.mascotas.db.ConstructorMascotas;
 import com.example.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;

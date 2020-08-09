@@ -7,6 +7,7 @@ import com.example.mascotas.fragments.IRvListamascotasFragmentView;
 import com.example.mascotas.fragments.IRvPerfilmascotaFragmentView;
 import com.example.mascotas.pojo.Mascota;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class RecyclerViewFragmentPresent implements IRecyclerViewFragmentPresenter{
@@ -33,7 +34,11 @@ public class RecyclerViewFragmentPresent implements IRecyclerViewFragmentPresent
     @Override
     public void obtenerMascotasBaseDatos() {
         constructorMascotas = new ConstructorMascotas(context);
-        mascotas = constructorMascotas.obtenerDatos();
+        try {
+            mascotas = constructorMascotas.obtenerDatos();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
